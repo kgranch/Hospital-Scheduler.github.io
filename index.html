@@ -1,83 +1,173 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>NAU - FMC Project</title>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https:////maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<style>
+    a{
+        color:white !important;
+    }
+    .active1{
+        background: #5E82CA !important;
+    }
+    a:hover{
+        background: #5E82CA !important;
+    }
+</style>
+</head>
+<body ng-app="app" ng-controller="dataCtrl">
+<nav class="navbar navbar-default" role="navigation" style="background:#224DA2;">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Department Scheduler</a>
+        </div>
 
-    <title>Hospital-scheduler.github.io by dukeayers</title>
-  </head>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-class="{'active1': currentPage==='Home'}"><a href="#" ng-click="changeArea('Home')">Home</a></li>
+                <li ng-class="{'active1': currentPage==='Team'}" class=""><a href="#" ng-click="changeArea('Team')">Meet The Team</a></li>
+                <li ng-class="{'active1': currentPage==='Prototype'}"><a href="#" ng-click="changeArea('Prototype')">Prototypes</a></li>
+                <li ><a href="http://nauimgcap.wikidot.com/" >Our Wiki</a></li>
 
-  <body>
-    <header>
-      <div class="inner">
-        <h1>Hospital-scheduler.github.io</h1>
-        <h2></h2>
-        <a href="https://github.com/dukeayers/Hospital-Scheduler.github.io" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+                <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">ProtoTypes <span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu" role="menu" style="background:#224DA2;">-->
+                        <!--<li><a href="#">First Pro</a></li>-->
+                        <!--<li><a href="#">Another action</a></li>-->
+                        <!--<li><a href="#">Something else here</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+    </nav>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/dukeayers/Hospital-Scheduler.github.io/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/dukeayers/Hospital-Scheduler.github.io/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/dukeayers/Hospital-Scheduler.github.io"></a> is maintained by <a href="https://github.com/dukeayers">dukeayers</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+    <div class="container" ng-show="currentPage==='Home'" >
+        <div class="row text-center">
+            <div class="col-sm-12" style="margin-bottom: 20px; border-bottom:2px solid lightgray;">
+                <h1>Project Overview</h1>
+            </div>
+            <div class="col-sm-8 col-sm-offset-2" style="font-size:16px;">
+               <p>
+                   We are currently tasked with creating a way to effectively and efficiently help the local hospital, Flagstaff Medical Center, to automate their
+                   scheduling process. This consists of weekly meetings with our NAU mentor and bi-weekly meetings with the FMC staff. On this website you will find our
+                   prototype descriptions, information about our team, and a link to go to our wiki. The wiki contains all of our paperwork information which includes the
+                   requirements document, use cases, and much more.
+               </p>
+            </div>
+        </div>
+    </div>
+    <div class="container" ng-show="currentPage==='Team'">
+        <div class="row" style="margin-bottom: 25px;">
+            <div class="col-sm-12 text-center" style="margin-bottom: 20px; border-bottom:2px solid lightgray;">
+                <h1>Meet the Team</h1>
+            </div>
+            <div class="col-sm-2 col-sm-offset-2 text-center">
+                <img class="img-responsive" src="kris.jpg">
+                <h4 style="text-align: center;">Kris Bullins</h4>
+            </div>
+            <div class="col-sm-6">
+               <p>An undergraduate student at Northern Arizona University majoring in Applied Computer Science. He has a broad range of experience developing innovative technologies through the use of learned software engineering techniques, and practice. As a student at Northern Arizona University, he has focused on learning a broad range of programming languages and their development tools. He has also honed his communication skills which have helped him be successful
+                both academically and professionally. Kristopher is the primary contact between the development team, the faculty mentor, and the industry client. </p>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 25px;">
+            <div class="col-sm-2 col-sm-offset-2 text-center">
+                <img class="img-responsive" src="kyle.jpg">
+                <h4>Kyle Granchelli</h4>
+            </div>
+            <div class="col-sm-6">
+                <p>An Applied Computer Science major with the intent on going into security, Kyle is primarily focused on database operations for the scheduler application.
+                    He has previous experience and knowledge on database manipulation from classes and personal exploration.</p>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 25px;">
+            <div class="col-sm-2 col-sm-offset-2 text-center">
+                <img class="img-responsive" src="duke.jpg">
+                <h4>Duke Ayers</h4>
+            </div>
+            <div class="col-sm-6">
+                <p>  A Computer Science major looking to enhance his skills in any and all fields,
+                    Duke is primarily focused on crafting the front-end of the scheduler application through the use of rising frameworks such as AngularJS
+                    with the help of Bootstrap.He is also working with Kyle to develop the back-end database that meets and exceeds all of the requirements
+                    for the scheduler application. </p>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 25px;">
+            <div class="col-sm-2 col-sm-offset-2 text-center">
+                <img class="img-responsive" src="ryan.jpg">
+                <h4>Ryan Dooley</h4>
+            </div>
+            <div class="col-sm-6">
+                <p> A Computer Science major, Ryan is primarily focused on the design and development of the front-end interface of the software system  </p>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 25px;">
+            <div class="col-sm-2 col-sm-offset-2 text-center">
+                <img class="img-responsive" src="http://placehold.it/200x200">
+                <h4>Jarrin Oishi</h4>
+            </div>
+            <div class="col-sm-6">
+               <p>A Computer Science major, Jarrin is primarily focused on creating and maintaining any and all documentation related to the
+                    scheduler application and its development.</p>
+            </div>
+        </div>
     </div>
 
-  
-  </body>
+
+    <div class="container" ng-show="currentPage==='Prototype'" >
+        <div class="row text-center">
+            <div class="col-sm-12" style="margin-bottom: 20px; border-bottom:2px solid lightgray;">
+                <h1>Prototype One</h1>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-responsive" src="prototype1.png" alt="Demonstration of Tabular Data"/>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-responsive" src="prototype12.png" alt="Model Demonstration"/>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-responsive" src="prototype123.png" alt="Google Calendar API Demonstration"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>General Description: </h3>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp; Our first prototype was primarily focused on getting our web technologies up and running. This meant that we needed to ensure that AngularJS, PHP, and Bootstrap were going to
+                    work well with one another with as minimal problems possible. We all took the time to delve into the Google Calendar API and pair it with a plugin that would output the data
+                    in a nice format. This meant that we needed to use OAuth to interact with the API to send/receive data (we made it possible to create an event and insert it into the calendar
+                    which is shown in Photo 2).
+                </p>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Another key part to this prototype was the use of AJAX to grab the data (display it into a calendar), and send data to the API (insert an event into the calendar). Finally,
+                    we are using PHP, which means that we have a MySQL DB set up on our backend. We placed some example data into the database and used PHP to make the call to the database. AngularJS
+                    played a big part in calling that PHP file that sent the request for the information to the database - this feature allows us to have a single page application. This prototype will
+                    be stored for later, for now we are going to be focusing on creating prototype 2. If you would like a copy of our prototype, please visit our Wiki and look for instructions there.
+                </p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-sm-12" style="margin-bottom: 20px; border-bottom:2px solid lightgray;">
+                <h1>Prototype Two (In Progress...)</h1>
+            </div>
+        </div>
+
+    </div>
+</body>
 </html>
